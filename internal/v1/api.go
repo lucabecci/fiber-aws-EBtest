@@ -4,11 +4,17 @@ import (
 	"github.com/gofiber/fiber/v2"
 )
 
-func New() *fiber.App {
-	index := fiber.New()
-	index.Get("/", func(c *fiber.Ctx) error {
-		return c.SendString("Hello, World 👋!")
-	})
+type IndexRouter struct {
+	Router *fiber.App
+}
 
-	return index
+func New() *IndexRouter {
+	index := fiber.New()
+
+	is := &IndexService{}
+	isService := is.Service()
+
+	index.Mount("/", isService)
+
+	return &IndexRouter{Router: index}
 }

@@ -1,4 +1,4 @@
-module github.com/lucabecci/golang-aws-EB
+module github.com/lucabecci/fiber-aws-EBtest
 
 go 1.15
 
