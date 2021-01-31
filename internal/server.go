@@ -39,9 +39,9 @@ func (serv *Server) Close() error {
 	return nil
 }
 
-func (serv *Server) Start() {
-	log.Printf("Server running on http://localhost:4000")
-	log.Fatal(serv.server.Listen(":4000"))
+func (serv *Server) Start(port string) {
+	log.Printf("Server running on http://localhost:" + port)
+	log.Fatal(serv.server.Listen(":" + port))
 }
 
 func Index(c *fiber.Ctx) error {
